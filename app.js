@@ -1,4 +1,5 @@
-var express = require("express"),
+module.exports = function() {
+  var express = require("express"),
     https   = require("https"),
     app     = express();
 
@@ -141,7 +142,7 @@ app.post("/logout", function(req, res) {
 
 var users = {};
 var port = process.env.PORT || 5000;
-var audience = process.env.AUDIENCE || "http://gupshup.herokuapp.com";
+var audience = process.env.AUDIENCE || "http://joseph-silvestre38.cozycloud.cc/apps/nightly-gupshup";
 
 app.listen(port, function() {
   console.log("Port is " + port + " with audience " + audience);
@@ -205,4 +206,5 @@ function verifyAssertion(ast, aud, cb) {
 
   req.write(data);
   req.end();
+}
 }
